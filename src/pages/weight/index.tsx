@@ -36,14 +36,16 @@ export default function Weight() {
       <main>
         <h1>Weights</h1>
         <table>
-          {weights.map((w) => (
-            <tr key={w.date}>
-              <td>{new Date(w.date).toLocaleDateString()}</td>
-              <td>
-                {w.weight} / {w.bodyFatRatio}
-              </td>
-            </tr>
-          ))}
+          <tbody>
+            {weights.map((w) => (
+              <tr key={w.date}>
+                <td>{new Date(w.date).toLocaleDateString()}</td>
+                <td>
+                  {w.weight} / {w.bodyFatRatio}
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </main>
     </>
