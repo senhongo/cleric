@@ -1,9 +1,8 @@
 import { PageHeader } from '@/components/PageHeader';
 import { addData } from '@/features/weight/model';
+import { now } from '@/utilities/now';
 
 export default function Record() {
-  const now = new Date().toISOString().split('T')[0];
-
   const handleSubmit = (e: React.SyntheticEvent) => {
     // stop page reload
     e.preventDefault();
@@ -28,7 +27,7 @@ export default function Record() {
         <form action="" onSubmit={handleSubmit}>
           <div>
             <label>
-              Date: <input type="date" name="date" defaultValue={now} />
+              Date: <input type="date" name="date" defaultValue={now()} />
             </label>
           </div>
           <div>
