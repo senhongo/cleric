@@ -1,5 +1,4 @@
-import Head from 'next/head';
-
+import { PageHeader } from '@/components/PageHeader';
 import { addData } from '@/features/weight/model';
 
 export default function Record() {
@@ -23,11 +22,7 @@ export default function Record() {
   };
   return (
     <>
-      <Head>
-        <title>Cleric - Record weight</title>
-        <meta name="description" content="Health manager" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
+      <PageHeader title="Cleric / Record Weight" />
 
       <main>
         <form action="" onSubmit={handleSubmit}>

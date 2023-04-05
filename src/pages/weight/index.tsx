@@ -1,8 +1,8 @@
 import type { WeightRecord } from '@/features/weight/model';
 
-import Head from 'next/head';
 import { useEffect, useState } from 'react';
 
+import { PageHeader } from '@/components/PageHeader';
 import { getData } from '@/features/weight/model';
 
 export default function Weight() {
@@ -27,11 +27,7 @@ export default function Weight() {
   }, []);
   return (
     <>
-      <Head>
-        <title>Cleric</title>
-        <meta name="description" content="Health manager" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
+      <PageHeader title="Cleric / Weights" />
 
       <main>
         <h1>Weights</h1>
