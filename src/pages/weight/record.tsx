@@ -16,9 +16,9 @@ export default function Record() {
     };
 
     addData({
-      date: target.date.value,
-      weight: parseInt(target.weight.value, 10),
-      bodyFatRatio: parseInt(target.bodyFatRatio.value, 10),
+      date: new Date(target.date.value).getTime(),
+      weight: parseFloat(target.weight.value),
+      bodyFatRatio: parseFloat(target.bodyFatRatio.value),
     });
   };
   return (

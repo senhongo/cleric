@@ -5,7 +5,13 @@ import { db } from '@/libs/firebase';
 export type WeightRecord = {
   weight: number;
   bodyFatRatio: number;
-  date: string;
+  date: number;
+};
+
+export type FBWeightRecord = {
+  weight: number;
+  bodyFatRatio: number;
+  date: number;
 };
 
 export async function addData(data: WeightRecord) {
