@@ -32,13 +32,19 @@ export default function Record() {
           </div>
           <div>
             <label>
-              Weight: <input type="number" name="weight" step=".1" />
+              Weight:{' '}
+              <input type="number" name="weight" step=".1" placeholder="65.8" />
             </label>
           </div>
           <div>
             <label>
               Body fat ratio:{' '}
-              <input type="number" name="bodyFatRatio" step=".1" />
+              <input
+                type="number"
+                name="bodyFatRatio"
+                step=".1"
+                placeholder="15.3"
+              />
             </label>
           </div>
           <button>Record</button>
