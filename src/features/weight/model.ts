@@ -2,13 +2,8 @@ import { collection, query, getDocs, setDoc, doc } from 'firebase/firestore';
 
 import { db } from '@/libs/firebase';
 
-export type WeightRecord = {
-  weight: number;
-  bodyFatRatio: number;
-  date: number;
-};
 
-export type FBWeightRecord = {
+export type WeightRecord = {
   weight: number;
   bodyFatRatio: number;
   date: number;
