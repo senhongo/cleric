@@ -21,6 +21,16 @@ export default function Home() {
               <span>View weights</span>
             </Link>
           </li>
+          <li>
+            <Link href="exercise/record">
+              <span>Add exercises</span>
+            </Link>
+          </li>
+          <li>
+            <Link href="exercise">
+              <span>View exercises</span>
+            </Link>
+          </li>
         </ul>
       </main>
     </>
