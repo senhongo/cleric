@@ -2,6 +2,7 @@ import { collection, query, getDocs, setDoc, doc } from 'firebase/firestore';
 
 import { db } from '@/libs/firebase';
 
+const dbName = 'weight';
 
 export type WeightRecord = {
   weight: number;
@@ -10,16 +11,16 @@ export type WeightRecord = {
 };
 
 export async function addData(data: WeightRecord) {
-  await setDoc(doc(db, 'weight', String(data.date)), data);
+  await setDoc(doc(db, dbName, String(data.date)), data);
 }
 
 export async function getData() {
-  const weights: WeightRecord[] = [];
-  const q = query(collection(db, 'weight'));
+  const data: WeightRecord[] = [];
+  const q = query(collection(db, dbName));
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
-    weights.push(doc.data() as WeightRecord);
+    data.push(doc.data() as WeightRecord);
   });
 
-  return weights;
+  return data;
 }
