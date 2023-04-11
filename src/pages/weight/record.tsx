@@ -16,7 +16,7 @@ export default function Record() {
     addData({
       date: new Date(target.date.value).getTime(),
       weight: parseFloat(target.weight.value),
-      bodyFatRatio: parseFloat(target.bodyFatRatio.value),
+      bodyFatRatio: parseFloat(target.bodyFatRatio.value || '0'),
     });
   };
   return (
