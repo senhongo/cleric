@@ -1,0 +1,16 @@
+.calendar {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+}
+
+.date {
+  width: 150px;
+  height: 150px;
+
+  // 
+  // &:first-child {
+  //   grid-column-start: 3;
+  // }
+}
