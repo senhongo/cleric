@@ -1,3 +1,4 @@
+// Returns the current time in YYYY-MM-DD format.
 export function now() {
   const date = new Date();
   const offset = date.getTimezoneOffset();
