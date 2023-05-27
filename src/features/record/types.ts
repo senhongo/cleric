@@ -3,7 +3,7 @@
  */
 export interface Record {
   id: string; // date of event converted to timestamp
-  createdAt: number; // Firebase Timestamp
+  createdAt: Date; // Firebase Timestamp
   health: { weight: number; bodyFatRatio: number };
   diet: string[]; // 'salad' | 'other' | 'ate out'
   activities: Activity[];
