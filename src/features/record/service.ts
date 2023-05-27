@@ -6,6 +6,7 @@ import {
   setDoc,
   doc,
   Timestamp,
+  where,
 } from 'firebase/firestore';
 
 import { db } from '@/libs/firebase';
@@ -26,3 +27,24 @@ export async function addRecord(record: Record) {
   );
 }
 
+/**
+ * Get a series of records within a period of time
+ * @param from string '2023-04-01'
+ * @param to string '2023-05-01'
+ * @returns Record[]
+ */
+// TODO: needs testing to verify the where works
+export async function getRecordsInPeriod(from: string, to: string) {
+  const records: Record[] = [];
+  const q = query(
+    collection(db, dbName),
+    where('createdAt', '>=', from),
+    where('createdAt', '<=', to),
+  );
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    records.push(doc.data() as Record);
+  });
+
+  return records;
+}
