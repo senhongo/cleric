@@ -1,5 +1,6 @@
 import type { Record } from './types';
 import {
+  arrayUnion,
   collection,
   query,
   getDocs,
@@ -13,18 +14,22 @@ import { db } from '@/libs/firebase';
 
 const dbName = 'records';
 
-export async function addRecord(record: Record) {
-  // TODO: move this to mapper, or elsehwere
-  // id should be a string like '2023-05-01'
-  const id = record.createdAt.toISOString().substring(0, 10);
-  await setDoc(
-    doc(db, dbName, record.id),
-    {
-      ...record,
-      createdAt: Timestamp.fromDate(record.createdAt),
-    },
-    { merge: true },
-  );
+async function addRecord(record: Record) {
+  try {
+    return await setDoc(
+      doc(db, dbName, record.id),
+      {
+        id: record.id,
+        health: record.health,
+        diet: arrayUnion(...record.diet),
+        activities: arrayUnion(...record.activities),
+        createdAt: Timestamp.fromDate(record.createdAt),
+      },
+      { merge: true },
+    );
+  } catch (e) {
+    console.log('error adding record', e);
+  }
 }
 
 /**
@@ -48,3 +53,8 @@ async function getRecordsInPeriod(from: Date, to: Date) {
 
   return records;
 }
+
+export const Records = {
+  addRecord,
+  getRecordsInPeriod,
+};
