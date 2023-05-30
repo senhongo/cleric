@@ -29,17 +29,17 @@ export async function addRecord(record: Record) {
 
 /**
  * Get a series of records within a period of time
- * @param from string '2023-04-01'
- * @param to string '2023-05-01'
+ * @param from Date
+ * @param to Date
  * @returns Record[]
  */
 // TODO: needs testing to verify the where works
-export async function getRecordsInPeriod(from: string, to: string) {
+async function getRecordsInPeriod(from: Date, to: Date) {
   const records: Record[] = [];
   const q = query(
     collection(db, dbName),
-    where('createdAt', '>=', from),
-    where('createdAt', '<=', to),
+    where('createdAt', '>=', Timestamp.fromDate(from)),
+    where('createdAt', '<=', Timestamp.fromDate(to)),
   );
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
